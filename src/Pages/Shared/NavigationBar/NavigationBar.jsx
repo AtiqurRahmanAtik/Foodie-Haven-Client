@@ -1,7 +1,26 @@
-import { Link, NavLink } from "react-router-dom";
-
+import { useContext } from "react";
+import { Link, NavLink, } from "react-router-dom";
+import { authContext } from "../../../Provider/AuthProvider";
+import { RiShoppingCartFill } from "react-icons/ri";
 
 const NavigationBar = () => {
+
+      const {user,  singOut ,count} = useContext(authContext);
+      
+
+      //logout
+      const handleLogOut = () =>{
+
+        singOut()
+        .then(() => {
+         console.log('logOut SuccessFull');
+        }).catch((error) => {
+          console.log(error);
+        });
+
+      }
+
+
 
         const links = <>
         
@@ -10,7 +29,25 @@ const NavigationBar = () => {
     <NavLink to='/menu'>   <li><a>Menu</a></li></NavLink>
 
     <NavLink to='/order/salad'>   <li><a> OrderFood</a></li></NavLink>
+    <NavLink to='/secrate'>   <li><a>Secreate</a></li></NavLink>
 
+      <NavLink to='/'>  
+
+      <button className="btn">
+      <RiShoppingCartFill className="text-3xl"></RiShoppingCartFill>
+      <div className="badge badge-secondary">+{count}</div>
+      </button>
+
+      </NavLink>
+
+
+    
+      {
+        user ? <>  <button  onClick={handleLogOut} className="btn btn-primary"> Log Out</button> 
+        {/* <span> {user.email}</span> */}
+        </> : 
+        <> <NavLink to='/login'>   <li><a> Login</a></li></NavLink></> 
+      }
      
         </>
 
