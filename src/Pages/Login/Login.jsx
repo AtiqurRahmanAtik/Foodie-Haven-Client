@@ -4,11 +4,11 @@ import { authContext } from '../../Provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
-
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
 
-    const { singInUser,updateProfile} = useContext(authContext);
+    const { singInUser,updateProfile,googleSingIn} = useContext(authContext);
 
     const [disable, setDisable] = useState(true);
 
@@ -16,6 +16,7 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
+    console.log(location.state);
 
     useEffect(()=> {
         loadCaptchaEnginge(6); 
@@ -59,6 +60,32 @@ const Login = () => {
               });
         })
     } 
+
+
+
+    //handleGoogle 
+    const handleGoogle = () => {
+
+        googleSingIn()
+        .then(result =>{
+            const googleUser = result.user;
+            console.log(googleUser);
+
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your Google SingIn has been Successfull",
+                showConfirmButton: false,
+                timer: 2000
+              });
+
+              navigate(from, { replace: true });
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
 
 
     //handleCapture
@@ -108,12 +135,7 @@ const Login = () => {
           <input type="email" name="email" placeholder="email" className="input input-bordered" required />
         </div>
         
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" name="email" placeholder="email" className="input input-bordered" required />
-        </div>
+     
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
@@ -147,6 +169,19 @@ const Login = () => {
 <button className="btn btn-link">Register</button></Link> </h1>
         </div>
       </form>
+
+
+      {/* google button */}
+     <div className=' mx-auto my-5 space-y-5'>
+
+        <div>
+            <h1 className='text-center text-2xl text-emerald-400 font-medium'>Sing in With</h1>
+        </div>
+        <hr />
+     <button onClick={handleGoogle} className='btn btn-accent w-full'>
+        <FcGoogle className='text-3xl mr-2'></FcGoogle>
+         Google</button>
+     </div>
 
     </div>
 

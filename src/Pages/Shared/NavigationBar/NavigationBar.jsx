@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { Link, NavLink, } from "react-router-dom";
 import { authContext } from "../../../Provider/AuthProvider";
 import { RiShoppingCartFill } from "react-icons/ri";
+import UseCart from "../../../Componet/Hooks/UseCart";
 
 const NavigationBar = () => {
 
-      const {user,  singOut ,count} = useContext(authContext);
+      const {user,singOut } = useContext(authContext);
       
-
+      const [cart] = UseCart();
       //logout
       const handleLogOut = () =>{
 
@@ -19,6 +20,9 @@ const NavigationBar = () => {
         });
 
       }
+
+
+      //useEffect get data from carts api
 
 
 
@@ -35,7 +39,7 @@ const NavigationBar = () => {
 
       <button className="btn">
       <RiShoppingCartFill className="text-3xl"></RiShoppingCartFill>
-      <div className="badge badge-secondary">+{count}</div>
+      <div className="badge badge-secondary">+{cart.length}</div>
       </button>
 
       </NavLink>

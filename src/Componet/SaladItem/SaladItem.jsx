@@ -1,18 +1,13 @@
-import { useContext } from "react";
-import { authContext } from "../../Provider/AuthProvider";
 
 
 const SaladItem = ({item}) => {
 
     const {name,recipe,image,price} = item;
 
-    const {count,setCount} = useContext(authContext);
-
-    const handleCart = (food) => {
-        console.log(food);
-        setCount(count + 1);
-        
-    }
+    
+    
+   
+       
 
     return (
         <div>
@@ -26,7 +21,7 @@ const SaladItem = ({item}) => {
     <p className="text-justify">Recipe :  {recipe.slice(0,100)}</p>
     <div className="card-actions">
       <button 
-      onClick={()=> handleCart(item)}
+     
       className="btn btn-primary">Add To Card</button>
     </div>
   </div>
