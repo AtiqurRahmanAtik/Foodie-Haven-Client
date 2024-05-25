@@ -35,7 +35,7 @@ const NavigationBar = () => {
     <NavLink to='/order/salad'>   <li><a> OrderFood</a></li></NavLink>
     <NavLink to='/secrate'>   <li><a>Secreate</a></li></NavLink>
 
-      <NavLink to='/'>  
+      <NavLink to='/dashboard/cart'>  
 
       <button className="btn">
       <RiShoppingCartFill className="text-3xl"></RiShoppingCartFill>

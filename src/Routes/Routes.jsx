@@ -11,6 +11,11 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Secrete from "../Pages/Shared/Secrate/Secrete ";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Dashboard from "../Layout/Dashboard/Dashboard";
+import Cart from "../Layout/Dashboard/Cart";
+import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
+
+
 
   
   
@@ -52,4 +57,22 @@ import PrivateRoute from "../Provider/PrivateRoute";
         }
       ]
     },
+
+    
+    // Dashboard Route
+    {
+      path: 'dashboard',
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children : [
+        {
+          path : 'cart',
+          element: <Cart></Cart>
+        },
+        {
+          path : 'allUser',
+          element: <AllUsers></AllUsers>
+        }
+      ]
+    },
+
   ]);

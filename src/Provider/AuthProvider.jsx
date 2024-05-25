@@ -1,8 +1,9 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut,  } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile,  } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../FireBase/FireBase.config";
-import {  updateProfile } from "firebase/auth";
+
 import { GoogleAuthProvider } from "firebase/auth";
+import useFetchPublic from "../Componet/Hooks/useFetchPublic";
 
  export const authContext = createContext(null);
 
@@ -12,6 +13,8 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const  fetchPublic = useFetchPublic();
 
    
 
@@ -38,12 +41,13 @@ const AuthProvider = ({children}) => {
 
     // Google sing IN
     const googleSingIn = ()=> {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     //update Profile 
 
-    const updateProfileUser =(name,photo) =>{
+    const profileUpdate =(name,photo) =>{
 
         updateProfile(auth.currentUser, {
             displayName: name, photoURL: photo
@@ -57,6 +61,27 @@ const AuthProvider = ({children}) => {
 
         setUser(currentUser)
         console.log('current User : ', currentUser);
+        
+
+        if(currentUser){
+        //  get token from server to client and store client
+        const currentInfo ={Email : currentUser.email};
+
+        fetchPublic.post('/jwt', currentInfo)
+        .then(res =>{
+        //   console.log(res.data.token)
+        if(res.data.token){
+            localStorage.setItem('access-token', res.data.token);
+        }
+        })
+        
+
+        }
+
+        else{
+            // remove token from client side
+            localStorage.removeItem('access-token');
+        }
         setLoading(false);
 
     });
@@ -65,7 +90,7 @@ const AuthProvider = ({children}) => {
         return unSubsCribe();
     }
 
-   },[])
+   },[fetchPublic])
 
 
 
@@ -77,7 +102,7 @@ const AuthProvider = ({children}) => {
         createUser,
         singInUser,
         singOut,
-        updateProfileUser,
+        profileUpdate,
         googleSingIn
       
     }
