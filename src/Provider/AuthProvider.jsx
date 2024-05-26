@@ -65,7 +65,7 @@ const AuthProvider = ({children}) => {
 
         if(currentUser){
         //  get token from server to client and store client
-        const currentInfo ={Email : currentUser.email};
+        const currentInfo ={email : currentUser.email};
 
         fetchPublic.post('/jwt', currentInfo)
         .then(res =>{

@@ -11,13 +11,17 @@ import { FaUtensils } from "react-icons/fa";
 import { FaList } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
+import useAdmin from "../../Componet/Hooks/useAdmin";
+
 
 
 
 const Dashboard = () => {
     const [cart] = UseCart();
     //Todo
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
+    console.log(isAdmin);
+    
 
     return (
         <div className="flex gap-4">
