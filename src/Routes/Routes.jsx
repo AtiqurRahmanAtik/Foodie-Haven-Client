@@ -14,6 +14,8 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import Cart from "../Layout/Dashboard/Cart";
 import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
+import AddItem from "../Layout/Dashboard/AddItem";
+import AdminRoute from "./AdminRoute";
 
 
 
@@ -68,9 +70,14 @@ import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
           path : 'cart',
           element: <Cart></Cart>
         },
+        //admit only
         {
           path : 'allUser',
-          element: <AllUsers></AllUsers>
+          element: <AdminRoute> <AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path: 'addItem',
+          element: <AdminRoute> <AddItem></AddItem></AdminRoute>
         }
       ]
     },
