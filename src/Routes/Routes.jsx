@@ -16,6 +16,9 @@ import Cart from "../Layout/Dashboard/Cart";
 import AllUsers from "../Layout/Dashboard/AllUsers/AllUsers";
 import AddItem from "../Layout/Dashboard/AddItem";
 import AdminRoute from "./AdminRoute";
+import ManageItem from "../Layout/Dashboard/ManageItem";
+import PaymentUser from "../Layout/Dashboard/PaymentUser";
+
 
 
 
@@ -70,6 +73,10 @@ import AdminRoute from "./AdminRoute";
           path : 'cart',
           element: <Cart></Cart>
         },
+        {
+          path: 'payment',
+          element: <PaymentUser></PaymentUser>
+        },
         //admit only
         {
           path : 'allUser',
@@ -78,6 +85,10 @@ import AdminRoute from "./AdminRoute";
         {
           path: 'addItem',
           element: <AdminRoute> <AddItem></AddItem></AdminRoute>
+        },
+        {
+          path: 'manageItem',
+          element: <AdminRoute> <ManageItem></ManageItem></AdminRoute>
         }
       ]
     },

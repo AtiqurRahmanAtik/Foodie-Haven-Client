@@ -1,7 +1,9 @@
 import axios from "axios";
-import { config } from "localforage";
+
 import { useNavigate } from "react-router-dom";
-import UseAuth from "./UseAuth";
+import useAuth from "./useAuth";
+
+
 
 
  const fetchSecure = axios.create({
@@ -11,13 +13,13 @@ import UseAuth from "./UseAuth";
 const useFetchSecure = () => {
     
     const navigate = useNavigate();
-    const { singOut} = UseAuth();
+    const { singOut} = useAuth();
     //request 
     fetchSecure.interceptors.request.use((config)=>{
         const token = localStorage.getItem('access-token');
         console.log(token);
         config.headers.authorization = `Bearer ${token}`;
-        return config;
+        return config; 
        
   },
    (error)=> {

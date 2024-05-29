@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import useFetchSecure from "./useFetchSecure";
-import UseAuth from "./UseAuth";
+import useAuth from "./useAuth";
 
 
 
 
 
-const UseCart = () => {
+
+const useCart = () => {
     
     const fetchSecure = useFetchSecure();
-    const {user} = UseAuth();
+    const {user} = useAuth();
 
     const {data: cart= [] , refetch} = useQuery({
         queryKey: ['cart', user?.email],
@@ -23,4 +24,4 @@ const UseCart = () => {
     
 };
 
-export default UseCart;
+export default useCart;

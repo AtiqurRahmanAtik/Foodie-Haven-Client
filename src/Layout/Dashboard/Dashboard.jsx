@@ -5,19 +5,20 @@ import {  FaCalendarAlt } from "react-icons/fa";
 import { MdReviews } from "react-icons/md";
 import { RiArmchairFill } from "react-icons/ri";
 import { IoMenuSharp } from "react-icons/io5";
-import UseCart from "../../Componet/Hooks/UseCart";
+
 import { MdPermContactCalendar } from "react-icons/md";
 import { FaUtensils } from "react-icons/fa";
 import { FaList } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
 import useAdmin from "../../Componet/Hooks/useAdmin";
+import useCart from "../../Componet/Hooks/useCart";
 
 
 
 
 const Dashboard = () => {
-    const [cart] = UseCart();
+    const [cart] = useCart();
     //Todo
     const [isAdmin] = useAdmin();
     console.log(isAdmin);
@@ -39,11 +40,12 @@ const Dashboard = () => {
                 <FaUtensils className="text-2xl"></FaUtensils>
                 AddItems ({cart.length})</button>  </NavLink> </li>
 
-
+                <li> <NavLink to='/dashboard/manageItem'> <button className="btn btn-active btn-primary">  <FaList className="text-2xl"></FaList> MangeItem</button> </NavLink> </li>
+                
                 <li> <NavLink to='/dashboard/reservation'> <button className="btn btn-active btn-primary"> <FaCalendarAlt className="text-2xl"></FaCalendarAlt>  Reservation</button> </NavLink> </li>
 
 
-                <li> <NavLink to='/dashboard/manageItem'> <button className="btn btn-active btn-primary">  <FaList className="text-2xl"></FaList> MangeItem</button> </NavLink> </li>
+             
 
                 <li> <NavLink to='/dashboard/mangeBooking'> <button className="btn btn-active btn-primary"> <FaBook className="text-2xl"></FaBook>  Manage Booking</button> </NavLink> </li>
 

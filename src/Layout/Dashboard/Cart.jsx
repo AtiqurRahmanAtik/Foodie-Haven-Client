@@ -1,13 +1,15 @@
-import UseCart from "../../Componet/Hooks/UseCart";
+
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import useFetchSecure from "../../Componet/Hooks/useFetchSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import useCart from "../../Componet/Hooks/useCart";
+import { Link } from "react-router-dom";
 
 
 const Cart = () => {
 
-    const [cart,refetch] = UseCart();
+    const [cart,refetch] = useCart();
 
     const totalPrice =  cart.reduce((total, item) => total + item.price,0);
     
@@ -60,13 +62,15 @@ const Cart = () => {
     return (
         <div >
 
+        
+
             <div className="flex justify-around my-14">
             <h1 className="text-4xl text-orange-400 font-semibold"> Total Orders : {cart.length}</h1>
             <h1 className="text-4xl text-orange-400 font-semibold"> Total Price : ${totalPrice}
            
             </h1>
 
-            <button className="btn btn-warning"> Pay</button>
+        {cart.length ? <Link to='/dashboard/payment'>    <button className="btn bg-blue-700 text-white"> Pay</button></Link> :      <button disabled className="btn bg-blue-700 text-white"> Pay</button>}
 
             </div>
 

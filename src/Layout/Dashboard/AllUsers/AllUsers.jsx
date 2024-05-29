@@ -50,6 +50,7 @@ const AllUsers = () => {
     //handleDelete
     const handleDelete = (id) => {
        console.log(id);
+       
        fetchSecure.delete(`/users/${id}`)
        .then(res=> {
         console.log(res.data);
@@ -72,6 +73,7 @@ const AllUsers = () => {
                 }
               });
 
+              
               Swal.fire({
                 title: "Are you sure?",
                 text: "You won't be able to revert this!",

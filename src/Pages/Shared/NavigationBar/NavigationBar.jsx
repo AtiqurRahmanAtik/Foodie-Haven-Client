@@ -2,13 +2,14 @@ import { useContext } from "react";
 import { Link, NavLink, } from "react-router-dom";
 import { authContext } from "../../../Provider/AuthProvider";
 import { RiShoppingCartFill } from "react-icons/ri";
-import UseCart from "../../../Componet/Hooks/UseCart";
+import useCart from "../../../Componet/Hooks/useCart";
+
 
 const NavigationBar = () => {
 
       const {user,singOut } = useContext(authContext);
       
-      const [cart] = UseCart();
+      const [cart] = useCart();
       //logout
       const handleLogOut = () =>{
 

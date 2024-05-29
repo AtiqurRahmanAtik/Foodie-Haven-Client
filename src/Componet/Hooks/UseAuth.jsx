@@ -4,10 +4,10 @@ import { authContext } from "../../Provider/AuthProvider";
 
 
 
-const UseAuth = () => {
+const useAuth = () => {
     
      const auth = useContext(authContext);
      return auth;
 };
 
-export default UseAuth;
+export default useAuth;

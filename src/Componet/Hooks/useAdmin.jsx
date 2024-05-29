@@ -1,14 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 
-import UseAuth from "./UseAuth";
+
 import useFetchSecure from "./useFetchSecure";
+import useAuth from "./useAuth";
 
 
 
 const useAdmin = () => {
   
     const fetchSecure = useFetchSecure();
-    const {user} = UseAuth();
+    const {user} = useAuth();
 
     const {data : isAdmin, isPending} = useQuery({
         queryKey : [user?.email, 'isAdmin'],

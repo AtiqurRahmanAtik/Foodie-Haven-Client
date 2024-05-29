@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useFetchSecure from "../Hooks/useFetchSecure";
-import UseCart from "../Hooks/UseCart";
+import useCart from "../Hooks/useCart";
+
 
 
 
@@ -16,7 +17,7 @@ const FoodCard = ({item}) => {
     const location = useLocation();
     const fetchSecure = useFetchSecure();
 
-    const [,refetch] = UseCart();
+    const [,refetch] =useCart();
 
 
     const handleCart = (food) =>{
