@@ -21,7 +21,7 @@ const Dashboard = () => {
     const [cart] = useCart();
     //Todo
     const [isAdmin] = useAdmin();
-    console.log(isAdmin);
+    // console.log(isAdmin);
     
 
     return (

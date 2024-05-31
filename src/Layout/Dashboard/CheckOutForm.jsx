@@ -25,7 +25,7 @@ const CheckOutForm = () => {
         if(totalPrice)
         fetchSecure.post('/create-payment-intent', {price : totalPrice})
         .then(res =>{
-            console.log(res.data.clientSecret);
+            // console.log(res.data.clientSecret);
             setClientSecret(res.data.clientSecret);
         })
 
@@ -53,11 +53,11 @@ const CheckOutForm = () => {
         });
 
         if(error){
-            console.log('payment error : ',error);
+            // console.log('payment error : ',error);
             setError(error.message);
         }
         else{
-            console.log('payment successful',paymentMethod);
+            // console.log('payment successful',paymentMethod);
             setError('');
         }
 
@@ -75,13 +75,13 @@ const CheckOutForm = () => {
 
         )
         if(confirmError){
-            console.log('confirm error', confirmError);
+            // console.log('confirm error', confirmError);
         }
 
         else{
-            console.log('paymentIntent',paymentIntent);
+            // console.log('paymentIntent',paymentIntent);
             if(paymentIntent.status === 'succeeded'){
-                console.log('transition Id : ',paymentIntent.id);
+                // console.log('transition Id : ',paymentIntent.id);
                 setTransitionId(paymentIntent.id);
             }
         }

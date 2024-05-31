@@ -7,7 +7,7 @@ import useAuth from "./useAuth";
 
 
  const fetchSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'foodie-haven-server.vercel.app'
 })
 
 const useFetchSecure = () => {
@@ -17,7 +17,7 @@ const useFetchSecure = () => {
     //request 
     fetchSecure.interceptors.request.use((config)=>{
         const token = localStorage.getItem('access-token');
-        console.log(token);
+        // console.log(token);
         config.headers.authorization = `Bearer ${token}`;
         return config; 
        
@@ -34,7 +34,7 @@ const useFetchSecure = () => {
         },
          async(error)=> {
 
-           console.log('error status', status);
+        //    console.log('error status', status);
             const status = error.response.status;
             
             if(status=== 401 || status === 403){

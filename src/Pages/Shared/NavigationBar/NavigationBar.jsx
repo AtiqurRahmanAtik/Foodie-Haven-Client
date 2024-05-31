@@ -15,9 +15,9 @@ const NavigationBar = () => {
 
         singOut()
         .then(() => {
-         console.log('logOut SuccessFull');
+        //  console.log('logOut SuccessFull');
         }).catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
 
       }

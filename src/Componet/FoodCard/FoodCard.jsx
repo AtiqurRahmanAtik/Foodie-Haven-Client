@@ -21,7 +21,7 @@ const FoodCard = ({item}) => {
 
 
     const handleCart = (food) =>{
-        console.log(food, user.email);
+        // console.log(food, user.email);
       
 
         if(user && user.email){
@@ -36,7 +36,7 @@ const FoodCard = ({item}) => {
 
            fetchSecure.post('/carts', cartItem)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if(res.data.insertedId){
                     Swal.fire({
                         position: "top-end",

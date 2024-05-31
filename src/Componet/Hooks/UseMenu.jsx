@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
     const [loading, setLoading] = useState(true);
 
     useEffect(()=> {
-        fetch("http://localhost:5000/menu")
+        fetch("foodie-haven-server.vercel.app/menu")
         .then(res=> res.json())
         .then(data => {
            

@@ -16,7 +16,7 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-    console.log(location.state);
+    // console.log(location.state);
 
     useEffect(()=> {
         loadCaptchaEnginge(6); 
@@ -31,13 +31,13 @@ const Login = () => {
         const password = form.password.value;
 
         const loginUser = {email, password};
-        console.log(loginUser);
+        // console.log(loginUser);
 
 
         //singIn User
         singInUser(email,password)
         .then(result => {
-            console.log(result.user);
+            // console.log(result.user);
 
             Swal.fire({
                 position: "top-end",
@@ -51,7 +51,7 @@ const Login = () => {
 
         })
         .catch(error =>{
-            console.log(error);
+            // console.log(error);
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -69,7 +69,7 @@ const Login = () => {
         googleSingIn()
         .then(result =>{
             const googleUser = result.user;
-            console.log(googleUser);
+            // console.log(googleUser);
 
             Swal.fire({
                 position: "top-end",
@@ -82,7 +82,7 @@ const Login = () => {
               navigate(from, { replace: true });
         })
         .catch(error => {
-            console.log(error);
+            // console.log(error);
         })
     }
 
@@ -92,7 +92,7 @@ const Login = () => {
     const handleCapture = (e) =>{
 
        const user_captcha_value = e.target.value;
-        console.log(user_captcha_value);
+        // console.log(user_captcha_value);
 
         if(validateCaptcha(user_captcha_value)){
             setDisable(false)

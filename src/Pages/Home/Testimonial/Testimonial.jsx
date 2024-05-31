@@ -23,12 +23,12 @@ const Testimonial = () => {
         const [rating, setRating] = useState(0);
 
         useEffect(()=> {
-            axios('http://localhost:5000/review')
+            axios('foodie-haven-server.vercel.app/review')
             .then(res => {
                 setItem(res.data);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
         },[])
 

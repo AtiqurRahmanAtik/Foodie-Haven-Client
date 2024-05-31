@@ -23,11 +23,11 @@ const AllUsers = () => {
 
     //handleAdmin 
     const handleAdmin =( user) =>{
-        console.log(user);
+        // console.log(user);
 
         fetchSecure.patch(`/users/admin/${user._id}`)
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.modifiedCount > 0){
                 refetch();
                 Swal.fire({
@@ -49,11 +49,11 @@ const AllUsers = () => {
     
     //handleDelete
     const handleDelete = (id) => {
-       console.log(id);
+      //  console.log(id);
        
        fetchSecure.delete(`/users/${id}`)
        .then(res=> {
-        console.log(res.data);
+        // console.log(res.data);
         if(res.data.deletedCount > 0){
             Swal.fire({
                 title: "Are you sure?",

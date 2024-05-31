@@ -16,7 +16,7 @@ const Register = () => {
   const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-    console.log(location.state);
+    // console.log(location.state);
 
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -26,7 +26,7 @@ const Register = () => {
       // Create User
       const result = await createUser(data.email, data.password);
       const loggedUser = result.user;
-      console.log(loggedUser);
+      // console.log(loggedUser);
 
       // Update Profile
       await profileUpdate(data.name, data.photo);
@@ -38,7 +38,7 @@ const Register = () => {
       };
 
       const res = await fetchPublic.post('/users', registerInfo);
-      console.log(res);
+      // console.log(res);
 
       if (res.data.insertedId) {
         Swal.fire({
@@ -64,7 +64,7 @@ const Register = () => {
         googleSingIn()
         .then(result =>{
             const googleUser = result.user;
-            console.log(googleUser);
+            // console.log(googleUser);
 
             const registerUser = {
                 email : result.user.email,
@@ -74,7 +74,7 @@ const Register = () => {
             //fetch axios
             fetchPublic.post('/users',registerUser)
             .then(res=>{
-                console.log(res.data);
+                // console.log(res.data);
 
                 Swal.fire({
                     position: "top-end",
@@ -90,7 +90,7 @@ const Register = () => {
        
         })
         .catch(error => {
-            console.log(error);
+            // console.log(error);
         })
     }
 

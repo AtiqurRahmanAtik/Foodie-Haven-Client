@@ -9,7 +9,7 @@ import About from "../Pages/About/About";
 import Order from "../Pages/Order/Order";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import Secrete from "../Pages/Shared/Secrate/Secrete ";
+
 import PrivateRoute from "../Provider/PrivateRoute";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import Cart from "../Layout/Dashboard/Cart";

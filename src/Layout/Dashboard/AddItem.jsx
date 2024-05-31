@@ -18,7 +18,7 @@ const AddItem = () => {
         register, handleSubmit,watch,reset, formState: { errors }, } = useForm()
     
       const onSubmit = async(data) => {
-        console.log(data);
+        // console.log(data);
 
         const imageFile = { image : data.image[0]};
 
@@ -29,7 +29,7 @@ const AddItem = () => {
             }
             }
         );
-        console.log(res.data);
+        // console.log(res.data);
         if(res.data.success){
             // send to the server side api
             const itemData = {

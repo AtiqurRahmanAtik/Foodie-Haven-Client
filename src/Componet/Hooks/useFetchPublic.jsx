@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const fetchPublic = axios.create({
-    baseURL : 'http://localhost:5000'
+    baseURL : 'foodie-haven-server.vercel.app'
 })
 
 const useFetchPublic = () => {
