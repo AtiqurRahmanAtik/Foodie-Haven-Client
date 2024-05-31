@@ -26,7 +26,7 @@ const CeffRecomentdent = () => {
         <h1 className="text-3xl font-bold text-center"> Ceff Recommitment Section : {Ceff.length}</h1>
 
 
-          <div className="grid gap-5 lg:grid-cols-4 ">
+          <div className="grid gap-5 lg:grid-cols-3 ">
             {
               Ceff.map((item) => <SaladItem key={item._id} item={item}></SaladItem>)
             }

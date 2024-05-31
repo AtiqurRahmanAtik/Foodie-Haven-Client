@@ -34,7 +34,7 @@ const NavigationBar = () => {
     <NavLink to='/menu'>   <li><a>Menu</a></li></NavLink>
 
     <NavLink to='/order/salad'>   <li><a> OrderFood</a></li></NavLink>
-    <NavLink to='/secrate'>   <li><a>Secreate</a></li></NavLink>
+  
 
       <NavLink to='/dashboard/cart'>  
 
@@ -69,7 +69,7 @@ const NavigationBar = () => {
             {links}
       </ul>
     </div>
-    <Link className="btn btn-ghost text-xl"> Bistro Boss <br /> 
+    <Link className="btn btn-ghost text-xl"> Foodie Haven <br /> 
    Restaurants </Link>
   </div>
 
@@ -80,9 +80,7 @@ const NavigationBar = () => {
 
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
+ 
 </div>
        
     );

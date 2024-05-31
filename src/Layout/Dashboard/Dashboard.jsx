@@ -36,7 +36,7 @@ const Dashboard = () => {
                 
                 <li> <NavLink to='/dashboard/adminHome'> <button className="btn btn-active btn-primary"> <IoHome className="text-2xl"></IoHome>  AdminHome</button> </NavLink> </li>
 
-                <li > <NavLink to='/dashboard/addItem'> <button  className="btn btn-outline btn-success w-full"> 
+                <li > <NavLink to='/dashboard/addItem'> <button  className="btn btn-active btn-primary w-full"> 
                 <FaUtensils className="text-2xl"></FaUtensils>
                 AddItems ({cart.length})</button>  </NavLink> </li>
 

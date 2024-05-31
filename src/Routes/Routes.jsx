@@ -54,12 +54,12 @@ import PaymentUser from "../Layout/Dashboard/PaymentUser";
           path: '/order/:category',
           element : <Order></Order>
         },
-        {
-          path: '/secrate',
-          element : <PrivateRoute>
-            <Secrete></Secrete>
-          </PrivateRoute>
-        }
+        // {
+        //   path: '/secrate',
+        //   element : <PrivateRoute>
+        //     <Secrete></Secrete>
+        //   </PrivateRoute>
+        // }
       ]
     },
 
